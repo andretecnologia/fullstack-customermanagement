@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../shared/customer/customer.service';
+import { GiphyService } from '../shared/giphy.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,14 +8,16 @@ import { CustomerService } from '../shared/customer/customer.service';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
   customers: Array<any>;
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService, private giphyService: GiphyService) { }
 
   ngOnInit() {
     this.customerService.findAll().subscribe(data => {
       this.customers = data;
+      for (const customer of this.customers) {
+        this.giphyService.get(customer.firstName).subscribe(url => customer.giphyUrl = url);
+      }
     });
   }
 }

@@ -1,3 +1,11 @@
-<div *ngFor="let customer of customers">
-  {{customer.firstName}}
-</div>
+<mat-card>
+  <mat-card-title>Customer List</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let customer of customers">
+        <img mat-list-avatar src="{{customer.giphyUrl}}" alt="{{customer.firstName}}">
+        <h3 mat-line>{{customer.firstName}} {{customer.lastName}}</h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
