@@ -1,0 +1,10 @@
+{
+  "/application/*": {
+      "target": "http://andretecnologia.com.br:8080",
+      "secure": false,
+      "logLevel": "debug",
+      "pathRewrite":{
+        "^/application": ""
+      }
+  }
+}

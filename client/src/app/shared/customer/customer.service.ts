@@ -11,6 +11,6 @@ export class CustomerService {
   }
 
   findAll(): Observable<any> {
-    return this.http.get('//localhost:8090/customers');
+    return this.http.get('http://andretecnologia.com.br:8080/application/customers');
   }
 }
